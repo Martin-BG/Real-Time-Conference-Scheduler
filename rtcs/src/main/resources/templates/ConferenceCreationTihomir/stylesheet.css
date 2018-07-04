@@ -16,7 +16,7 @@ body, html {
 
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-    display: block;
+    display: contents;
 }
 audio, canvas, progress, video {
     display: inline-block;
@@ -764,7 +764,7 @@ html {
 }
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.42857143;
     color: #333;
     background-color: #fff;
@@ -3429,7 +3429,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
     color: #9d9d9d;
 }
 .navbar-inverse .navbar-nav>li>a {
-    color: #9d9d9d;
+    color: white;
 }
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
     color: #fff;
