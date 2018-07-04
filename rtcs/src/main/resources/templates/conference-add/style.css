@@ -24,7 +24,7 @@ form {
   /* Just to center the form on the page */
   margin: 0 auto;
   width: 400px;
-  height: 380px; /* added to control the bottom line and match the space between the button and the border of the form;
+  height: 780px; /* added to control the bottom line and match the space between the button and the border of the form;
   /* To see the outline of the form */
   padding: 2.5em;
   border: 1px solid #CCC;
@@ -32,7 +32,7 @@ form {
 }
 
 form div + div {
-  margin-top: 1.5em; /* space between white boxes; */
+  margin-top: 2em; /* space between white boxes; */
 }
 
 label {
@@ -86,7 +86,7 @@ textarea {
     color: black;
     padding: 15px 32px;
     display: inline-block;
-    margin: 30px 90px;
+    margin: 30px 50px;
     border-radius: 20px;
     border: 2px solid silver;
     font: 1.0em sans-serif;
