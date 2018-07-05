@@ -22,4 +22,9 @@ public class UserServiceImpl implements UserService {
     public void create(final User user) {
         userRepository.saveAndFlush(user);
     }
+
+    @Override
+    public User findUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
 }
