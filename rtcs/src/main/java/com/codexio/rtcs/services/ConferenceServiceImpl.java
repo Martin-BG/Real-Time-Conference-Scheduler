@@ -1,6 +1,6 @@
-package com.codexio.rtcs.service;
+package com.codexio.rtcs.services;
 
-import com.codexio.rtcs.repository.ConferenceRepository;
+import com.codexio.rtcs.repositories.ConferenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

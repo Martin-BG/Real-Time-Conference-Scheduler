@@ -1,4 +1,4 @@
-package com.codexio.rtcs.service;
+package com.codexio.rtcs.services;
 
 public interface HallService {
 
