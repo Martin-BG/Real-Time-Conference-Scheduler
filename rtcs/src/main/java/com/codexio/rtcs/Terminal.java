@@ -1,13 +1,10 @@
 package com.codexio.rtcs;
 
-import com.codexio.rtcs.entities.User;
-import com.codexio.rtcs.service.*;
+import com.codexio.rtcs.models.binding.UserRegisterBindingDto;
+import com.codexio.rtcs.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
-
-import java.util.Arrays;
-import java.util.HashSet;
 
 @Controller
 public class Terminal implements CommandLineRunner {
@@ -34,10 +31,11 @@ public class Terminal implements CommandLineRunner {
 
     @Override
     public void run(final String... args) {
-        User user = new User();
+        UserRegisterBindingDto user = new UserRegisterBindingDto();
         user.setName("Pesho");
         user.setEmail("pesho@abv.bg");
         user.setPassword("password");
+        user.setConfirmPassword("password");
         this.userService.create(user);
     }
 
