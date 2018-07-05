@@ -1,4 +1,4 @@
-package com.codexio.rtcs.repository;
+package com.codexio.rtcs.repositories;
 
 import com.codexio.rtcs.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
