@@ -24,7 +24,7 @@ form {
   /* Just to center the form on the page */
   margin: 0 auto;
   width: 400px;
-  height: 380px; /* added to control the bottom line and match the space between the button and the border of the form;
+  height: 390px; /* added to control the bottom line and match the space between the button and the border of the form;
   /* To see the outline of the form */
   padding: 2.5em;
   border: 1px solid #CCC;
@@ -94,10 +94,15 @@ textarea {
 
 .form-edit{
   font-size: 18px;
+   /* moves the input boxes along with the names down; */
 }
 
 button {
    /*This extra margin represent roughly the same space as the space
      between the labels and their text fields */
   margin-left: .0em;
+}
+
+.form-table{
+  padding-top: 200px; /* space between var bar and start of the form; */
 }
