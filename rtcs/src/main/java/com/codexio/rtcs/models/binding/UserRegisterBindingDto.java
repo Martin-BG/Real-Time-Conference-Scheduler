@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class UserBindingDto {
+public class UserRegisterBindingDto {
 
     @NotNull
     private String name;
