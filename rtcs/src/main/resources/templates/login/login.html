@@ -13,29 +13,23 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
+<header>
+<nav class="navbar transparent navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contacts</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contacts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
     </div>
 </nav>
+</header>
 
-
+<div class="form-table"> 
 <form class ="form-edit" method="post">
         <div>
           <label for="name">Username:</label> <input type="text" id="name" name="user_name">
@@ -48,6 +42,7 @@
         <h5><a href="login.html"> Forgot password?</a></h5>
         </div>
 </form>
+</div>
 
 <!--<footer class="container-fluid text-center">-->
     <!--<p>Footer Text</p>-->
