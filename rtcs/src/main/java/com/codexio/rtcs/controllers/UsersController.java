@@ -1,16 +1,18 @@
 package com.codexio.rtcs.controllers;
 
+import com.codexio.rtcs.models.binding.UserLoginBindingDto;
 import com.codexio.rtcs.models.binding.UserRegisterBindingDto;
+import com.codexio.rtcs.models.view.UserViewDto;
 import com.codexio.rtcs.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -24,38 +26,39 @@ public class UsersController extends BaseController {
         this.userService = userService;
     }
 
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
-                           Model model,
-                           HttpSession session) {
-//        model.addAttribute("name", ((UserRegisterDto)(session.getAttribute("user"))).getName());
-
-        return "greeting";
+    @GetMapping("/login")
+    public ModelAndView userLoginGet() {
+        return super.view("/users/login");
     }
 
-    @GetMapping("/register")
-    public String userRegisterGet() {
-        return "user-register";
-    }
-
-    @PostMapping("/register")
-    public ModelAndView userRegisterPost(@Valid @ModelAttribute("dto") UserRegisterBindingDto userRegisterBindingDto,
-                                         BindingResult result,
-                                         ModelAndView modelAndView,
-                                         RedirectAttributes redirectAttributes,
-                                         HttpSession session) {
-
-
-        session.setAttribute("user", userRegisterBindingDto);
+    @PostMapping("/login")
+    public ModelAndView userLoginPost(@Valid @ModelAttribute("dto") UserLoginBindingDto userLoginBindingDto,
+                                      BindingResult result) {
         if (result.hasErrors()) {
             result.getAllErrors().forEach(e -> System.out.println(e.getDefaultMessage()));
         }
 
-        userService.create(userRegisterBindingDto);
-//        redirectAttributes.addFlashAttribute("name", dto.getName());
-//        modelAndView.addObject("name", dto.getName());
-        modelAndView.setViewName("redirect:/greeting");
-        return modelAndView;
-//        return "redirect:/greeting?name=" + dto.getName();
+        if (!userService.isPasswordValid(userLoginBindingDto)) {
+            return super.redirect("/users/login");
+        }
+
+        return super.redirect("/home");
+    }
+
+    @GetMapping("/register")
+    public ModelAndView userRegisterGet() {
+        return super.view("/users/register");
+    }
+
+    @PostMapping("/register")
+    public ModelAndView userRegisterPost(@Valid @ModelAttribute("dto") UserRegisterBindingDto userRegisterBindingDto,
+                                         BindingResult result) {
+        if (result.hasErrors()) {
+            result.getAllErrors().forEach(e -> System.out.println(e.getDefaultMessage()));
+        }
+
+        final UserViewDto userViewDto = userService.create(userRegisterBindingDto);
+
+        return super.redirect("/users/login");
     }
 }
