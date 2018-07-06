@@ -7,6 +7,7 @@ import com.codexio.rtcs.models.view.UserViewDto;
 import com.codexio.rtcs.repositories.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -17,12 +18,15 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     public UserServiceImpl(final UserRepository userRepository,
-                           final ModelMapper modelMapper) {
+                           final ModelMapper modelMapper,
+                           final BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.modelMapper = modelMapper;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     private UserViewDto getUserViewDto(final User user) {
@@ -36,6 +40,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserViewDto create(final UserRegisterBindingDto userRegisterBindingDto) {
         User user = modelMapper.map(userRegisterBindingDto, User.class);
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         User savedUser = userRepository.saveAndFlush(user);
 
         return getUserViewDto(savedUser);
