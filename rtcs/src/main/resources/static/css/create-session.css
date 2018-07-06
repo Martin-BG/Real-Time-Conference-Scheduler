@@ -1,5 +1,5 @@
 body, html {
-    background-image: url("header.jpg");
+    background-image: url("/jpg/header.jpg");
 
     height: 100%;
 
@@ -24,7 +24,7 @@ form {
   /* Just to center the form on the page */
   margin: 0 auto;
   width: 400px;
-  height: 520px; /* added to control the bottom line and match the space between the button and the border of the form;
+  height: 730px; /* added to control the bottom line and match the space between the button and the border of the form;
   /* To see the outline of the form */
   padding: 2.5em;
   border: 1px solid #CCC;
@@ -43,6 +43,9 @@ label {
   text-align: left;
 }
 
+h5{
+  color: white;
+}
 
 input, textarea {
   /* To make sure that all text fields have the same font settings
@@ -83,7 +86,7 @@ textarea {
     color: black;
     padding: 15px 32px;
     display: inline-block;
-    margin: 30px 60px;
+    margin: 30px 50px;
     border-radius: 20px;
     border: 2px solid silver;
     font: 1.0em sans-serif;
@@ -93,7 +96,6 @@ textarea {
   font-size: 18px;
 }
 
-
 button {
    /*This extra margin represent roughly the same space as the space
      between the labels and their text fields */
@@ -101,15 +103,5 @@ button {
 }
 
 .form-table{
-  padding-top: 150px;
-}
-
-a{
-  font-weight: bold;
-  font-size: 13px;
-}
-
-.already-registered{
-  font-size: 15px;
-  color: grey;
+  padding-top: 100px; /* space between var bar and start of the form; */
 }

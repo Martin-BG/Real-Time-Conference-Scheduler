@@ -1,5 +1,5 @@
 body, html {
-    background-image: url("header.jpg");
+    background-image: url("/jpg/header.jpg");
 
     height: 100%;
 
@@ -14,7 +14,5 @@ body, html {
 .heading{
     padding-top: 100px;
 }
-.container{
-    padding-top: 100px;
-}
+
 
