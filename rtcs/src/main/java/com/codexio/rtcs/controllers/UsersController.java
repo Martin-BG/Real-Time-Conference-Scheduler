@@ -1,6 +1,5 @@
 package com.codexio.rtcs.controllers;
 
-import com.codexio.rtcs.models.binding.UserLoginBindingDto;
 import com.codexio.rtcs.models.binding.UserRegisterBindingDto;
 import com.codexio.rtcs.models.view.UserViewDto;
 import com.codexio.rtcs.services.UserService;
@@ -31,7 +30,7 @@ public class UsersController extends BaseController {
         return super.view("/users/login");
     }
 
-    @PostMapping("/login")
+/*    @PostMapping("/login")
     public ModelAndView userLoginPost(@Valid @ModelAttribute("dto") UserLoginBindingDto userLoginBindingDto,
                                       BindingResult result) {
         if (result.hasErrors()) {
@@ -43,7 +42,7 @@ public class UsersController extends BaseController {
         }
 
         return super.redirect("/home");
-    }
+    }*/
 
     @GetMapping("/register")
     public ModelAndView userRegisterGet() {
@@ -53,11 +52,30 @@ public class UsersController extends BaseController {
     @PostMapping("/register")
     public ModelAndView userRegisterPost(@Valid @ModelAttribute("dto") UserRegisterBindingDto userRegisterBindingDto,
                                          BindingResult result) {
-        if (result.hasErrors()) {
-            result.getAllErrors().forEach(e -> System.out.println(e.getDefaultMessage()));
+
+        UserViewDto userExists = userService.getByEmail(userRegisterBindingDto.getEmail());
+
+        if (userExists != null) {
+            result.rejectValue("email", "error.user",
+                    "There is already a user registered with the email provided");
+        }
+
+        if (!userRegisterBindingDto.getPassword().equals(userRegisterBindingDto.getConfirmPassword())) {
+            result.rejectValue("password", "error.password",
+                    "Password and Confirm Password do not match");
         }
 
         final UserViewDto userViewDto = userService.create(userRegisterBindingDto);
+
+        if (userViewDto == null) {
+            result.rejectValue("name", "error.register",
+                    "Registration failed");
+        }
+
+        if (result.hasErrors()) {
+            return super.view("/users/register");
+//            result.getAllErrors().forEach(e -> System.out.println(e.getDefaultMessage()));
+        }
 
         return super.redirect("/users/login");
     }
