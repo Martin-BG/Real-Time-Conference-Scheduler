@@ -32,6 +32,10 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+
     @ManyToMany(
             mappedBy = "attendances",
             cascade = {CascadeType.ALL}
@@ -48,4 +52,5 @@ public class User {
                 ", sessions=" + sessions.size() +
                 '}';
     }
+
 }
