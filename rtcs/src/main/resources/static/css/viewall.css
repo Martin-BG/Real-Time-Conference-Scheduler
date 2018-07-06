@@ -1,0 +1,20 @@
+body, html {
+    background-image: url("/jpg/header.jpg");
+
+    height: 100%;
+
+    background-size: cover;
+
+}
+
+.navbar.transparent.navbar-inverse {
+    background: rgba(0,0,0,0.4);
+}
+
+.heading{
+    padding-top: 100px;
+}
+.container{
+    padding-top: 100px;
+}
+

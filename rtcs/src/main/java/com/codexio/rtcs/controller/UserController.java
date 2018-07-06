@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserController {
 
     @GetMapping(value = {"/", "/all"})
-    @ResponseBody
     public String hello() {
         return "Hello";
     }

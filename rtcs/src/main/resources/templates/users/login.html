@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+
+</head>
+<body>
+
+<header>
+    <nav class="navbar transparent navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/users/register"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                <li><a href="/users/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="form-table">
+    <form action="/users/login" class="form-edit" method="post">
+        <div>
+            <label for="email">Email:</label> <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="password">Password:</label><input type="password" id="password" name="password">
+        </div>
+        <div>
+            <button type="submit" class="button">Login</button>
+            <h5><a href="#" style="color: grey">Forgot password?</a></h5>
+        </div>
+    </form>
+</div>
+
+<!--<footer class="container-fluid text-center">-->
+<!--<p>Footer Text</p>-->
+<!--</footer>-->
+
+</body>
+
+
+</html>

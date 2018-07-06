@@ -1,0 +1,83 @@
+body, html {
+    background-image: url("/jpg/header.jpg");
+
+    height: 100%;
+
+    background-size: cover;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.075em;
+    line-height: 1.65em;
+    color: dimgrey;
+
+}
+
+.navbar.transparent.navbar-inverse {
+    background: rgba(0,0,0,0.4);
+}
+
+.heading{
+    padding-top: 100px;
+}
+.container {
+    text-align: center;
+    align-content: center;
+    margin: auto;
+    width: 50%;
+    padding-top: 300px;
+
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-size: 20px;
+}
+
+
+h1 {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif
+}
+
+a {
+    color: #f05f40;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s
+}
+
+
+hr {
+    max-width: 50px;
+    border-width: 3px;
+    border-color: #f05f40
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.btn-xl {
+    padding: 1rem 2rem;
+}
+
+.btn {
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 300px;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+}
+
+.btn-primary {
+    background-color: #f05f40;
+    border-color: #f05f40;
+}
