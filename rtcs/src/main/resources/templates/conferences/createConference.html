@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Conference Creation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/create-session.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<header>
+    <nav class="navbar transparent navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/users/register"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                <li><a href="/users/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="form-table">
+    <form action="/sessions/create" class="form-edit" method="post">
+        <div>
+            <label for="name">Name:</label> <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="description">Description:</label> <textarea id="description" name="description"
+                                                                    maxlength="500"></textarea>
+        </div>
+        <div>
+            <label for="hallName">Hall:</label> <input type="text" id="hallName" name="hallName">
+        </div>
+        <div>
+            <label for="speakerName">Speaker:</label> <input type="text" id="speakerName" name="speakerName">
+        </div>
+        <div>
+            <label for="startDate">Start&nbspDate:</label><input type="datetime-local" id="startDate" name="startDate">
+        </div>
+        <div>
+            <label for="endDate">End&nbspDate:</label><input type="datetime-local" id="endDate" name="endDate">
+        </div>
+        <div>
+            <button type="submit" class="button">Create&nbspSession</button>
+        </div>
+    </form>
+</div>
+
+<!--<footer class="container-fluid text-center">-->
+<!--<p>Footer Text</p>-->
+<!--</footer>-->
+
+</body>
+
+
+</html>
