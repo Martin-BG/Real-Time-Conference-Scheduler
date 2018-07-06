@@ -1,0 +1,112 @@
+body, html {
+    width: 100%;
+    background: url("/jpg/header.jpg"), linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)) no-repeat fixed;
+
+    height: 1080px;
+    background-position: center center;
+    background-size: cover;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.075em;
+    line-height: 1.65em;
+    color: white;
+
+}
+.navbar.transparent.navbar-inverse {
+    background: rgba(0,0,0,0.4);
+}
+
+.heading{
+    padding-top: 100px;
+}
+
+.table-responsive{
+    background-color: white;
+
+}
+
+form {
+  /* Just to center the form on the page */
+  margin: 0 auto;
+  width: 400px;
+  height: 670px; /* added to control the bottom line and match the space between the button and the border of the form;
+  /* To see the outline of the form */
+  padding: 2.5em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+
+form div + div {
+  margin-top: 1.5em; /* space between white boxes; */
+}
+
+label {
+  /* To make sure that all labels have the same size and are properly aligned */
+  display: inline-block;
+  width: 50px;
+  color: white;
+  text-align: left;
+}
+
+h5{
+  color: white;
+}
+
+input, textarea {
+  /* To make sure that all text fields have the same font settings
+     By default, textareas have a monospace font */
+  font: 1em sans-serif;
+
+  /* To give the same size to all text fields */
+  width: 300px;
+  box-sizing: border-box;
+
+  /* To harmonize the look & feel of text field border */
+  border: 1px solid silver;
+}
+
+input:focus, textarea:focus {
+  /* To give a little highlight on active elements */
+  border-color: black;
+}
+
+textarea {
+  /* To properly align multiline text fields with their labels */
+  vertical-align: top;
+
+  /* To give enough room to type some text */
+  /* Used for the description */
+  height: 5em;
+}
+
+/*.button {
+   To position the buttons to the same position of the text fields 
+  padding-left: 70px; /* same size as the label elements */
+  /*display: inline-block;
+  /*color: black;
+}
+*/
+.button {
+    background-color: white;
+    color: black;
+    padding: 15px 32px;
+    display: inline-block;
+    margin: 30px 50px;
+    border-radius: 20px;
+    border: 2px solid silver;
+    font: 1.0em sans-serif;
+}
+
+.form-edit{
+  font-size: 18px;
+}
+
+button {
+   /*This extra margin represent roughly the same space as the space
+     between the labels and their text fields */
+  margin-left: .0em;
+}
+
+.form-table{
+  padding-top: 100px; /* space between var bar and start of the form; */
+}
