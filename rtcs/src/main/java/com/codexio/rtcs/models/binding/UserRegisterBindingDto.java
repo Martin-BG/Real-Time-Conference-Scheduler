@@ -2,20 +2,20 @@ package com.codexio.rtcs.models.binding;
 
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 @Data
 public class UserRegisterBindingDto {
 
-    @NotNull
+    @NotBlank
     private String name;
 
-    @NotNull
+    @NotBlank
     private String email;
 
-    @NotNull
+    @NotBlank
     private String password;
 
-    @NotNull
+    @NotBlank
     private String confirmPassword;
 }
