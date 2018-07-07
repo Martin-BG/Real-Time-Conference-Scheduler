@@ -4,8 +4,8 @@
     <title>Conference Schedular</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/css/homepageusers.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/homepageusers.css">
 </head>
 <body>
 
@@ -14,12 +14,12 @@
         <div class="container-fluid">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../contacts.html">Contacts</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contacts">Contacts</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/users/register"><span class="glyphicon glyphicon-user"></span>{username}</a></li>
-                <li><a href="../home.html"><span class="glyphicon glyphicon-log-in"></span>Log out</a></li>
+                <li><a href="/users/home"><span class="glyphicon glyphicon-user"></span>{username}</a></li>
+                <li><a href="/users/logout"><span class="glyphicon glyphicon-log-in"></span>Log out</a></li>
             </ul>
         </div>
     </nav>
@@ -32,7 +32,7 @@
         <div class="col-md-10 mx-auto">
             <h3 class="heading">My Conferences</h3>
             <div>
-                <form action="/action_page.php" method="post">
+                <form action="#" method="post">
                     <table class="table table-hover" style="background-color: white; opacity: 0.8;">
                         <thead>
                         <tr>
@@ -54,7 +54,8 @@
                             <td>ul. Tintyava</td>
                             <td>21</td>
                             <td>
-                                <button type="submit" class="btn btn-default"><a href="../conferences/edit.html">Edit</a></button>
+                                <button type="submit" class="btn btn-default"><a href="/conferences/edit">Edit</a>
+                                </button>
                             </td>
                         </tr>
 
@@ -65,7 +66,8 @@
                             <td>ul. Tintyava</td>
                             <td>7</td>
                             <td>
-                                <button type="submit" class="btn btn-default"><a href="../conferences/edit.html">Edit</a></button>
+                                <button type="submit" class="btn btn-default"><a href="/conferences/edit">Edit</a>
+                                </button>
                             </td>
 
                         </tr>
@@ -77,15 +79,16 @@
                             <td>ul. Tintyava</td>
                             <td>10</td>
                             <td>
-                            <button type="submit" class="btn btn-default"><a href="../conferences/edit.html">Edit</a></button>
+                                <button type="submit" class="btn btn-default"><a href="/conferences/edit">Edit</a>
+                                </button>
                             </td>
                         </tr>
                         </tbody>
                     </table>
                 </form>
             </div>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="../conferences/create.html">Create</a>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="../conferences/all.html">Events</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="/conferences/create">Create</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="/conferences/all">Events</a>
 
 
         </div>
@@ -95,7 +98,7 @@
     <div class="col-md-10 mx-auto">
         <h3 class="heading">Conferences to Attend</h3>
         <div>
-            <form action="/action_page.php" method="post">
+            <form action="#" method="post">
                 <table class="table table-hover" style="background-color: white; opacity: 0.8;">
                     <thead>
                     <tr>
