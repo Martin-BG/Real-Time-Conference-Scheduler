@@ -1,7 +1,9 @@
 package com.codexio.rtcs.controllers;
 
 import com.codexio.rtcs.models.binding.ConferenceCreateBindingDto;
-import org.springframework.security.core.Authentication;
+import com.codexio.rtcs.models.view.ConferenceViewDto;
+import com.codexio.rtcs.services.ConferenceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -11,56 +13,56 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/conferences")
 public class ConferencesController extends BaseController {
 
+    private final ConferenceService conferenceService;
+
+    @Autowired
+    public ConferencesController(final ConferenceService conferenceService) {
+        this.conferenceService = conferenceService;
+    }
+
     @GetMapping("/all")
-    public ModelAndView getAll() {
+    public ModelAndView allGet() {
         return super.view("/conferences/all");
     }
 
     @GetMapping("/create")
-    public ModelAndView create() {
+    public ModelAndView createGet() {
         return super.view("/conferences/create");
     }
 
     @PostMapping("/create")
-    public ModelAndView create(@Valid @ModelAttribute("dto") ConferenceCreateBindingDto conferenceCreateBindingDto,
-                               BindingResult result,
-                               HttpSession session) {
+    public ModelAndView createPost(@Valid @ModelAttribute ConferenceCreateBindingDto conferenceCreateBindingDto,
+                                   BindingResult result) {
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-/*        auth.
-        UserViewDto userExists = userService.getByEmail(userRegisterBindingDto.getEmail());
+        if (!result.hasErrors()) {
+            conferenceCreateBindingDto.setUserEmail(SecurityContextHolder.getContext().getAuthentication().getName());
+            final ConferenceViewDto conferenceViewDto = conferenceService.create(conferenceCreateBindingDto);
 
-        if (userExists != null) {
-            result.rejectValue("email", "error.user",
-                    "There is already a user registered with the email provided");
+            if (conferenceViewDto != null) {
+                return super.redirect("/conferences/edit");
+            } else {
+                result.rejectValue("persist", "error.create.conference",
+                        "Conference creation failed");
+            }
+
         }
-
-        if (!userRegisterBindingDto.getPassword().equals(userRegisterBindingDto.getConfirmPassword())) {
-            result.rejectValue("password", "error.password",
-                    "Password and Confirm Password do not match");
-        }
-
-        final UserViewDto userViewDto = userService.create(userRegisterBindingDto);
-
-        if (userViewDto == null) {
-            result.rejectValue("name", "error.register",
-                    "Registration failed");
-        }
-
-        if (result.hasErrors()) {
-            return super.view("/users/register");
-//            result.getAllErrors().forEach(e -> System.out.println(e.getDefaultMessage()));
-        }
-
-        return super.redirect("/users/login");*/
 
         return super.view("/conferences/create");
+    }
+
+    @GetMapping("/edit")
+    public ModelAndView editGet() {
+        return super.view("/conferences/edit");
+    }
+
+    @PostMapping("/edit")
+    public ModelAndView editPost() {
+        return super.view("/conferences/edit");
     }
 }

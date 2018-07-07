@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Data
 public class ConferenceCreateBindingDto {
 
-    private String userId;
+    private String userEmail;
 
     @NotBlank
     private String name;
