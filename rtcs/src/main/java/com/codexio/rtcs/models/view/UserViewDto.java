@@ -6,6 +6,8 @@ import lombok.Data;
 public class UserViewDto {
 
     private String id;
+
     private String name;
+
     private String email;
 }
