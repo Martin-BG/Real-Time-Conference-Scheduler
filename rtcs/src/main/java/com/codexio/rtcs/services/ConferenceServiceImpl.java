@@ -1,9 +1,11 @@
 package com.codexio.rtcs.services;
 
 import com.codexio.rtcs.entities.Conference;
+import com.codexio.rtcs.entities.Session;
 import com.codexio.rtcs.entities.User;
 import com.codexio.rtcs.models.binding.ConferenceCreateBindingDto;
 import com.codexio.rtcs.models.view.ConferenceViewDto;
+import com.codexio.rtcs.models.view.SessionViewDto;
 import com.codexio.rtcs.repositories.ConferenceRepository;
 import com.codexio.rtcs.repositories.UserRepository;
 import org.modelmapper.ModelMapper;
@@ -73,7 +75,7 @@ public class ConferenceServiceImpl implements ConferenceService {
     }
 
     @Override
-    public Collection<ConferenceViewDto> getAllUpcomingByDate(LocalDate date) {
+    public Collection<ConferenceViewDto> getAllUpcomingByDate(final LocalDate date) {
         return conferenceRepository
                 .findAll()
                 .stream()
@@ -84,6 +86,25 @@ public class ConferenceServiceImpl implements ConferenceService {
                     return conferenceViewDto;
                 })
                 .sorted(Comparator.comparing(ConferenceViewDto::getStartDate))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Collection<SessionViewDto> getSessions(final String id) {
+        final Conference conference = conferenceRepository.getOne(id);
+        return conference
+                .getSessions()
+                .stream()
+                .sorted(Comparator.comparing(Session::getStartTime))
+                .map(session -> {
+                    final SessionViewDto sessionViewDto = modelMapper.map(session, SessionViewDto.class);
+                    sessionViewDto.setHallId(session.getHall().getId());
+                    sessionViewDto.setHallName(session.getHall().getName());
+                    sessionViewDto.setAttendancesCount(session.getAttendances().size());
+                    sessionViewDto.setConferenceName(conference.getName());
+                    sessionViewDto.setConferenceId(conference.getId());
+                    return sessionViewDto;
+                })
                 .collect(Collectors.toList());
     }
 }
