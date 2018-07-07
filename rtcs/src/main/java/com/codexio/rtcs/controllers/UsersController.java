@@ -30,27 +30,13 @@ public class UsersController extends BaseController {
         return super.view("/users/login");
     }
 
-/*    @PostMapping("/login")
-    public ModelAndView userLoginPost(@Valid @ModelAttribute("dto") UserLoginBindingDto userLoginBindingDto,
-                                      BindingResult result) {
-        if (result.hasErrors()) {
-            result.getAllErrors().forEach(e -> System.out.println(e.getDefaultMessage()));
-        }
-
-        if (!userService.isPasswordValid(userLoginBindingDto)) {
-            return super.redirect("/users/login");
-        }
-
-        return super.redirect("/home");
-    }*/
-
     @GetMapping("/register")
     public ModelAndView userRegisterGet() {
         return super.view("/users/register");
     }
 
     @PostMapping("/register")
-    public ModelAndView userRegisterPost(@Valid @ModelAttribute("dto") UserRegisterBindingDto userRegisterBindingDto,
+    public ModelAndView userRegisterPost(@Valid @ModelAttribute UserRegisterBindingDto userRegisterBindingDto,
                                          BindingResult result) {
 
         UserViewDto userExists = userService.getByEmail(userRegisterBindingDto.getEmail());
@@ -78,5 +64,15 @@ public class UsersController extends BaseController {
         }
 
         return super.redirect("/users/login");
+    }
+
+    @GetMapping("/home")
+    public ModelAndView userHomeGet() {
+        return super.view("/users/home");
+    }
+
+    @GetMapping("/logout")
+    public ModelAndView userLogoutGet() {
+        return super.redirect("/home");
     }
 }
