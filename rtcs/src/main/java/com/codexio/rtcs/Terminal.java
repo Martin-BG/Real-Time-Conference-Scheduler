@@ -1,6 +1,5 @@
 package com.codexio.rtcs;
 
-import com.codexio.rtcs.models.binding.UserRegisterBindingDto;
 import com.codexio.rtcs.services.ConferenceService;
 import com.codexio.rtcs.services.HallService;
 import com.codexio.rtcs.services.SessionService;
@@ -9,9 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
 
-import javax.transaction.Transactional;
-
-@Transactional
 @Controller
 public class Terminal implements CommandLineRunner {
 
@@ -34,11 +30,11 @@ public class Terminal implements CommandLineRunner {
 
     @Override
     public void run(final String... args) {
-        UserRegisterBindingDto user = new UserRegisterBindingDto();
+/*        UserRegisterBindingDto user = new UserRegisterBindingDto();
         user.setName("Pesho");
         user.setEmail("pesho@abv.bg");
         user.setPassword("password");
         user.setConfirmPassword("password");
-        this.userService.create(user);
+        this.userService.create(user);*/
     }
 }
