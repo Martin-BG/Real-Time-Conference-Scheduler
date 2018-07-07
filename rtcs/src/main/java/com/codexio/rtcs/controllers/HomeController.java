@@ -16,4 +16,14 @@ public class HomeController extends BaseController {
     public ModelAndView index() {
         return super.redirect("/home");
     }
+
+    @GetMapping(value = {"/about"})
+    public ModelAndView about() {
+        return super.view("/home");
+    }
+
+    @GetMapping(value = {"/contacts"})
+    public ModelAndView contacts() {
+        return super.view("/home");
+    }
 }
