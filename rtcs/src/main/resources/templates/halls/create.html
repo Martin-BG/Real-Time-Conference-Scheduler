@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Hall</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/create-hall.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar transparent navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/users/home">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contacts">Contacts</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/users/home"><span class="glyphicon glyphicon-user"></span>{username}</a></li>
+                <li><a href="/users/logout"><span class="glyphicon glyphicon-log-in"></span>Log out</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="form-table">
+    <form action="/halls/create" class="form-edit" method="post">
+        <div>
+            <label for="name">Name</label> <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="description">Description:</label> <textarea id="description" name="description"
+                                                                    maxlength="500"></textarea>
+        </div>
+        <div>
+            <label for="seats">Seats:</label> <input type="number" min="1" id="seats" name="seats">
+        </div>
+        <div>
+            <button type="submit" class="button">Add Hall</button>
+        </div>
+    </form>
+</div>
+
+<!--<footer class="container-fluid text-center">-->
+<!--<p>Footer Text</p>-->
+<!--</footer>-->
+
+</body>
+
+
+</html>
