@@ -27,8 +27,8 @@ public class Hall {
     private Integer capacity;
 
     @ManyToOne
-    @JoinColumn(name = "address_id", nullable = false)
-    private Address address;
+    @JoinColumn(name = "conference_id", nullable = false)
+    private Conference conference;
 
     @OneToMany(
             mappedBy = "hall",
@@ -47,7 +47,7 @@ public class Hall {
                         ? description.substring(0, 17) + "..."
                         : description) + '\'' +
                 ", capacity=" + capacity +
-                ", address=" + address +
+                ", conference=" + conference.getName() +
                 ", sessions=" + sessions.size() +
                 '}';
     }
