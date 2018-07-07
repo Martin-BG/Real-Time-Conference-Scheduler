@@ -11,6 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -55,4 +59,31 @@ public class ConferenceServiceImpl implements ConferenceService {
         return this.getConferenceViewDto(conference);
     }
 
+    @Override
+    public Collection<ConferenceViewDto> getAll() {
+        return conferenceRepository
+                .findAll()
+                .stream()
+                .map(conference -> {
+                    final ConferenceViewDto conferenceViewDto = modelMapper.map(conference, ConferenceViewDto.class);
+                    conferenceViewDto.setUserEmail(conference.getOwner().getEmail());
+                    return conferenceViewDto;
+                })
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Collection<ConferenceViewDto> getAllUpcomingByDate(LocalDate date) {
+        return conferenceRepository
+                .findAll()
+                .stream()
+                .filter(conference -> conference.getEndDate().isAfter(date))
+                .map(conference -> {
+                    final ConferenceViewDto conferenceViewDto = modelMapper.map(conference, ConferenceViewDto.class);
+                    conferenceViewDto.setUserEmail(conference.getOwner().getEmail());
+                    return conferenceViewDto;
+                })
+                .sorted(Comparator.comparing(ConferenceViewDto::getStartDate))
+                .collect(Collectors.toList());
+    }
 }

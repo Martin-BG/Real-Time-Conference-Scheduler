@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Conference Scheduler</title>
     <meta charset="utf-8">
@@ -39,36 +40,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td><a href="/sessions/all">Internal meeting Codexio</a></td>
-                    <td>Upcoming</td>
-                    <td>10.07.2018</td>
-                </tr>
-                <tr>
-                    <td><a href="/sessions/all">Blockchain Dev Course - Sofia </a></td>
-                    <td>Upcoming</td>
-                    <td>08.07.2018</td>
-                </tr>
-                <tr>
-                    <td><a href="/sessions/all">Visualization with 3ds Max</a></td>
-                    <td>Upcoming</td>
-                    <td>05.07.2018</td>
-                </tr>
-                <tr>
-                    <td><a href="/sessions/all">Visualization with 3ds Max </a></td>
-                    <td>Active</td>
-                    <td>04.07.2018</td>
-                </tr>
-                <tr>
-                    <td><a href="/sessions/all">Java MVC Frameworks - Spring </a></td>
-                    <td>Active</td>
-                    <td>04.07.2018</td>
-                </tr>
-                <tr>
-                    <td><a href="/sessions/all">Java OOP Basics</a></td>
-                    <td>Past</td>
-                    <td>01.07.2018</td>
-                </tr>
+                <th:block th:each="conference : ${conferences}" th:object="${conference}">
+                    <tr>
+                        <td>
+                            <a th:href="@{/sessions/all/{id}(id=*{id})}">
+                                <span th:text="*{name}"></span>
+                            </a>
+                        <td>Upcoming</td>
+                        <td><span th:text="*{startDate}"></span></td>
+                    </tr>
+                </th:block>
                 </tbody>
             </table>
         </div>

@@ -9,6 +9,8 @@ public class ConferenceViewDto {
 
     private String userEmail;
 
+    private String id;
+
     private String name;
 
     private String description;

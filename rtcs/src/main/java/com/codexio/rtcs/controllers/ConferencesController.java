@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/conferences")
@@ -28,7 +29,9 @@ public class ConferencesController extends BaseController {
 
     @GetMapping("/all")
     public ModelAndView allGet() {
-        return super.view("/conferences/all");
+        ModelAndView modelAndView = super.view("/conferences/all");
+        modelAndView.addObject("conferences", conferenceService.getAllUpcomingByDate(LocalDate.now()));
+        return modelAndView;
     }
 
     @GetMapping("/create")
