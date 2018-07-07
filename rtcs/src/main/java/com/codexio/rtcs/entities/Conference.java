@@ -29,9 +29,8 @@ public class Conference {
     @Column(length = 2048)
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "address_id", nullable = false)
-    private Address address;
+    @Column(nullable = false)
+    private String address;
 
     @Column(nullable = false)
     private LocalDate startDate;
@@ -45,6 +44,13 @@ public class Conference {
             cascade = CascadeType.REMOVE
     )
     private Set<Session> sessions = new HashSet<>();
+
+    @OneToMany(
+            mappedBy = "conference",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.REMOVE
+    )
+    private Set<Hall> halls = new HashSet<>();
 
     @Override
     public String toString() {
