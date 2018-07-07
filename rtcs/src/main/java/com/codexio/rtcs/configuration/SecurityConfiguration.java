@@ -58,6 +58,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/users/home").authenticated()
                 .antMatchers("/sessions/all").permitAll()
                 .antMatchers("/sessions/create").authenticated()
+                .antMatchers("/sessions/edit").authenticated()
+                .antMatchers("/halls/create").authenticated()
                 .antMatchers("/conferences/all").permitAll()
                 .antMatchers("/conferences/create").authenticated()
                 .antMatchers("/conferences/edit").authenticated()
