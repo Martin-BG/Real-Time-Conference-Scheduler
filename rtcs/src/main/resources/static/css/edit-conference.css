@@ -1,6 +1,6 @@
 body, html {
     width: 100%;
-    background: url("../jpg/header.jpg"), linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)) no-repeat;
+    background: url("/jpg/header.jpg"), linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)) no-repeat;
 
     height: 1080px;
     background-position: center center;

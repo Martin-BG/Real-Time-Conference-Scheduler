@@ -1,6 +1,5 @@
 body, html {
-    /*background-image: url("/jpg/header.jpg");*/
-    background-image: url("../jpg/header.jpg");
+    background-image: url("/jpg/header.jpg");
 
     height: 100%;
 
