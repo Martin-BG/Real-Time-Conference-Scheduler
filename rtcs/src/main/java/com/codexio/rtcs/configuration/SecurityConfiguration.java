@@ -6,12 +6,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 
+@EnableWebSecurity
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -49,14 +51,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/home").permitAll()
+                .antMatchers("/about").permitAll()
+                .antMatchers("/contacts").permitAll()
                 .antMatchers("/users/login").permitAll()
                 .antMatchers("/users/register").permitAll()
+                .antMatchers("/users/home").authenticated()
                 .antMatchers("/sessions/all").permitAll()
+                .antMatchers("/sessions/create").authenticated()
                 .antMatchers("/conferences/all").permitAll()
-                /*.antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
-                .authenticated()*/.and().csrf().disable().formLogin()
+                .antMatchers("/conferences/create").authenticated()
+                .antMatchers("/conferences/edit").authenticated()
+                .and().csrf().disable().formLogin()
                 .loginPage("/users/login").failureUrl("/users/login?error=true")
-                .defaultSuccessUrl("/home")
+                .defaultSuccessUrl("/users/home")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .and().logout()
