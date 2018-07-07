@@ -19,11 +19,11 @@ public class HomeController extends BaseController {
 
     @GetMapping(value = {"/about"})
     public ModelAndView about() {
-        return super.view("/home");
+        return super.view("/about");
     }
 
     @GetMapping(value = {"/contacts"})
     public ModelAndView contacts() {
-        return super.view("/home");
+        return super.view("/contacts");
     }
 }
