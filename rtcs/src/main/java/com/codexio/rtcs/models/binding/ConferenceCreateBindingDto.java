@@ -14,12 +14,14 @@ public class ConferenceCreateBindingDto {
     private String userEmail;
 
     @NotBlank
+    @Size(max = 255)
     private String name;
 
     @Size(max = 2048)
     private String description;
 
     @NotBlank
+    @Size(max = 255)
     private String address;
 
     @NotBlank
