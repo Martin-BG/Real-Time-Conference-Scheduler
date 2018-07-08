@@ -22,11 +22,11 @@ public class ConferenceCreateBindingDto {
     @NotBlank
     private String address;
 
-    @NotNull
+    @NotBlank
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
-    @NotNull
+    @NotBlank
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
 }
